@@ -1,0 +1,27 @@
+#Interact with a Debian system
+
+  - name: install package
+    apt: name=<$package_name> state=latest update_cache=yes
+
+  - name: download file
+    get_url: url=<$download_url> dest=<$destination>/
+
+  - name: copies file to new destination
+    copy: src=<$file> dest=<$destination>/
+
+#If Ansible doesn't have the command you want built in, you can always...
+
+  - name: command line
+    command: <$command>
+
+#You can also specify different commands for different systems in the same task file...
+
+#Debian
+  - name: install package on Debian
+    apt: name=<$package_name> state=latest update_cache=yes
+    when: ansible_distribution == 'Debian'
+
+#CentOS
+  - name: install package on CentOS
+    yum: name=<$package_name> state=latest update_cache=yes
+    when: ansible_distribution == 'CentOS'

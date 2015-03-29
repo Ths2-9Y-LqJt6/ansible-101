@@ -1,0 +1,9 @@
+- name: <$summary_name>
+  hosts: <$hosts_ip_or_group>
+#  connection: localhost
+#  gather_facts: no
+
+  roles:
+#    - router
+#    - switch
+    - server
