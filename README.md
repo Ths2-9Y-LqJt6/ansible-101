@@ -33,5 +33,7 @@ ansible-playbook -l <$hostgroup_or_name> playbook.yml
 
 By default, Ansible assumes using ssh keys for keyless access. To override that behavior:
 
+```
 -u #overrides the remote username (default: your current username)
 -k #prompts for SSH password
+```
