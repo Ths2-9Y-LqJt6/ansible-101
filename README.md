@@ -51,13 +51,15 @@ By default, Ansible assumes using ssh keys for keyless access. To override that 
 #Roles
 Roles are an built-in structured way to organize templates, variables, and tasks in Ansible.
 
-* roles
- * <$role_name>
-  * templates
-   * <$myTemplate>.j2
-  * tasks
-   * main.yml
-  * vars
-   * main.yml
+```
+-roles
+--<$role_name>
+---templates
+----<$myTemplate>.j2
+---tasks
+----main.yml
+---vars
+----main.yml
+```
 
 Each <$role_name> can be whatever you want it to be, but the underlying structure should be the same. You can have multiple tasks and vars .yml files, and simply include them in the main.yml file and Ansible will incorporate them automatically when it runs.
