@@ -29,7 +29,13 @@ localhost
 100.42.00.12
 ```
 
-Now, when you run a playbook, you can specify which group to run that playbook on either in the playbook itself (i.e., hosts: <$hostgroup> as the first item in the playbook) or by limiting it when you run the playbook:
+Time to try your first Ansible command:
+
+```
+ansible test -m ping -u root -k
+```
+
+When you run a playbook, you can specify which group to run that command or playbook on. For the command, just specify in the command itself (such as the example above). In playbooks, you can specify the host either in the playbook itself (i.e., hosts: <$hostgroup> as the first item in the playbook) or by limiting it when you run the playbook:
 
 ```
 ansible-playbook -l <$hostgroup_or_name> playbook.yml
@@ -38,6 +44,20 @@ ansible-playbook -l <$hostgroup_or_name> playbook.yml
 By default, Ansible assumes using ssh keys for keyless access. To override that behavior:
 
 ```
--u #overrides the remote username (default: your current username)
+-u <$username> #overrides the remote username (default: your current username)
 -k #prompts for SSH password
 ```
+
+#Roles
+Roles are an built-in structured way to organize templates, variables, and tasks in Ansible.
+
+* roles
+ * <$role_name>
+  * templates
+   * <$myTemplate>.j2
+  * tasks
+   * main.yml
+  * vars
+   * main.yml
+
+Each <$role_name> can be whatever you want it to be, but the underlying structure should be the same. You can have multiple tasks and vars .yml files, and simply include them in the main.yml file and Ansible will incorporate them automatically when it runs.
