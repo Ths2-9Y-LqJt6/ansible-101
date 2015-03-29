@@ -5,8 +5,12 @@ This is just a quick and dirty Ansible 101 for interacting with Linux servers.
 Via PIP, this will get Ansible up and running on your machine:
 
 ```
-pip install -r paramiko PyYAML Jinja2 httplib2 ansible
+pip install ansible
 ```
+
+This should also install dependencies, including paramiko, PyYAML, and Jinja2.
+
+You can install Ansible other ways, but I recommend installing via PIP so you can take advantage of any python packages installed by PIP.
 
 #Getting Started
 
